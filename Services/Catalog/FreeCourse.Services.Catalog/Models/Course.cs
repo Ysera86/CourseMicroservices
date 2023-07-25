@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
-namespace Course.Services.Catalog.Models
+namespace FreeCourse.Services.Catalog.Models
 {
     public class Course
     {

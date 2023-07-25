@@ -1,12 +1,13 @@
-﻿using Course.Services.Catalog.Models;
+﻿
+using FreeCourse.Services.Catalog.Models;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
-namespace Course.Services.Catalog.Dtos
+namespace FreeCourse.Services.Catalog.Dtos
 {
-    public class CourseCreateDto
+    public class CourseUpdateDto
     {
-
+        public string Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public string Description { get; set; }
