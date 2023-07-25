@@ -2,7 +2,7 @@
 using FreeCourse.Services.Catalog.Dtos;
 using FreeCourse.Services.Catalog.Models;
 using FreeCourse.Services.Catalog.Settings;
-using FreeCourse.Shared.Dtoss;
+using FreeCourse.Shared.Dtos;
 using MongoDB.Driver;
 using System.Net;
 

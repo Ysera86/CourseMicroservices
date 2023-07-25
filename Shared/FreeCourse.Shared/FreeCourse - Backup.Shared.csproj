@@ -1,9 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-	
+	<ItemgroupItemGroup></ItemGroup>
+		
+	<gfraFrameworkReference></FrameworkReference> IncInclude=""m"miMicrosoft.AsoNretetetpNetCore.App />
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>

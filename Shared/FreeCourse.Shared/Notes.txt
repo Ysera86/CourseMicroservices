@@ -1,0 +1,7 @@
+Shared içine tüm controller larýn temel almasý için baseController ekledik: CusromBaseController
+ancak tüm API.Controllerlarýnýn basei olan ControllerBase , AspNetCore frameworkünden geliyor ve Shared projesine paket yükler gibi framework ekleyemeyiz; bu nedenle csproj dosyasýna aþaðýdaki gibi ekliyoruz : 
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+Bu sayede artýk Shared projesi frameworkün içindek tüm kütüphanelere eriþebilir.
