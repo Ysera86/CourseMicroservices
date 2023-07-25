@@ -4,3 +4,34 @@
 	Category > Course > Feature
 
 Ýliþkisel olmadýðýndan category silince o kategorideki couse silinmez mesela
+
+
+appsettings içinde mongo db için ayarlarý yaptýk
+  "DatabaseSettings": {
+    "CourseCollectionName": "Courses",
+    "CategoryCollectionName": "Categories",
+      "ConnectionString": "mongodb://localhost:27017"
+  },
+
+yalnýz dockerize edicez ileride ve dockerda localhost diye bir kavram yok, o prod. dolayýsýyla env deðiþkenler ile connectionstringi ezicez.
+localhost -> DockerCompose.yml içndeki servisin ismi gelecek buraya
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+//OptionsPattern
+
+/*
+ IOptions<DatabaseSettings> options
+
+options.Value 
+
+þeklinde kullanabilirdim ama classlarýnctoruna DI olarak IOptions geçmek yerine OptionsPattern ile DatabaseSettings ve IDatabaseSettings oluþturup okuyup DI olarak IDatabaseSettings geçebilirim artýk
+ */
+
+builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
+builder.Services.AddSingleton<IDatabaseSettings>(sp =>
+{
+    return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
+});
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
