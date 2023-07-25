@@ -1,0 +1,6 @@
+  launchSetting.json aþaðýdaki deðiþikliði yaptýk kestrel sunucusunda çnk her 7 microservis için de 7 tarayýcý açmasýn çalýþtýrýnca.
+	"launchBrowser": true, 
+
+	Category > Course > Feature
+
+Ýliþkisel olmadýðýndan category silince o kategorideki couse silinmez mesela

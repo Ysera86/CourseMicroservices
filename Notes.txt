@@ -1,0 +1,207 @@
+DDD- Domain Driven Design
+CQRS Pattern
+
+API Gateway : Ocelot
+Identity Server  :SqlExpress EfCore
+Catalog API: MongoDB
+Basket API : Redis , StockExchange Redis
+Discount API : PostgreSQL, Dapper
+Message Broker : RabbitMQ
+
+
+ASP.Net Core Mvc :microservisler tüketecek
+JWT : Authentication/Authorization token microservisler arası kimlik doğrulama/ytkilendirme
+Docker : saannaltırma teknolojisi, microservisleri ve kullandıkları dbleri ayağa kaldıracak cont
+Identity on Asp.Net Core : Kimlik doğrulama üyelik sistemi,  OAuth 2.0 - OpenID protokollerine uygun
+Asp.Net Core MVC API : Endpointler
+Identity Server Library OAuth 2.0 - OpenID Framework : Üyelik sistemi, token dağıtıcı, open source
+Redis : NoSQL DB, Distributed Memory Cache
+RabbitMQ : Message Broker, Microservisler arası asenkron ietişim, mesaj kuyruğu, open source
+
+
+Sql Server Express : DBeaver Community IDE
+PostgreSQL : DBeaver Community IDE
+MongoDB : MondoDB Compass
+Redis : Anpther Redis Desktop Manager
+
+Identity Server :.Net core 3.1 > sonraki versiyonlar ücretli
+
+Ölçeklendirme:
+------------------
+scale up : Uygulamanın yüklü/kurulu olduğu sunucunun ramini çekirdek sayısını vb artırmak
+scale out : Uygulamanın aynısından bir instance daha ayağa kaldırmak
+
+
+Monolithic Architecture : N katmanlı tek soln. genelde tek db 
+-------------------------------------
+User Interface 
+Business Layer
+Data Layer
+   |
+   v
+DataBase	
+
+Avantajları : 
+-------------
+- Debugging, yönetme, monitoring, bakımı daha kolay : küçük
+- Transaction yönetimi kolaay (genelde tek db)
+
+Dezavantajları :
+-------------
+- Tüm proje tek dil, frameworke bağlısın
+- Bütünleşik bir yapı olduğu için üzerindeki katmanlarda çalışan  ayrı takımlar olsa, deploy etmek için birbirlerini beklemeliler çünkü tek bir proje
+- Uygulama büyüdükçe ufak yerde değişiklik projenin genelini bozabilir, zorlaştırabilir, kodu kırabilir
+- Ölçeklendirme (en çok muhattap olunan sayfalarda dar boğaz olursa (ürünler vs)) sadece en sık talep edilen (dar boğaz yaşanan) sayfaları scale yapamayız, projenin tümü scale up/out edilmeli, sadece belirli, darboğaz yaşanan sayfaları scale yapılamaz
+- Büyük codebase, ekibe yeni katılanlar için de öğrenmesi zor olur
+
+
+Microservice Architecture : Birbirinden bağımsız olarak hayatlarını sürdürebilen, kendi içerisinde tek bir amaca odaklı, gelişebilen ve birbiriyle haberleşebilen servislerdir
+-------------------------------------
+Microserverice UI ->  Microservice
+  |                   |         |   
+  v                   v         v
+Microservice    Microservice  Microservice
+  |                   |           |
+  v                   v           v
+DataBase          DataBase     DataBase
+
+
+
+
+Avantajları : 
+-------------
+- Her microservisin kendi codebasei, dolayısıyla küçük codebaseler, kolay yönetilebilirler
+- Birbirlerinden bağımsız olarak deploy edilebilirler: microservislerde çalışan ayrı takımlar olsa, deploy etmek için birbirlerini beklemelerine gerek yok 
+- Birbirlerinden bağımsız olarak scale up/out edilebilirler, yoğunluk yaşayan microservise darboğazı gidermek için scale edilebilir, sunucu kaynakları daha verimli kullanılabilir
+- Hata izolasyonu var, birinde hata olsa diğerleri ayakta kaldığından uygulama hayatta kalır sadece tek bir işlem sorunlu olur. (sepette sorun olsa sadece sepette sorun olur uygulama genel manada çalışmaya devam eder)
+- Küçük codebaseler olduklarından takımların/ ekibe yeni katılanların kodu  anlamaları ve bakımını yapmaları ve adapte olmaları daha kolay olur
+
+Dezavantajları :
+-------------
+- Servisler arası iletişim ve yönetimi karmaşıklaşabilir
+- Debugging zorlaşabilir
+- Her servisin ayrı dbsi olduğu için transaction yönetimi zorlaşabilir : Çeşitli patternlerden yararlanıp kolaylaştırılabilir
+- Monitoring, loglama biraraya getirmek daha zor olabilr
+
+Microservisler arası iletişim 
+--------------------------------
+1 - Senkron iletişim : Microservice A > istek yap sonuç bekle > Microservice B
+2 - Asenkron iletişim : Microservice A > istek yap sonuç bekleme > Message Broker > Microservice B
+
+Senaryoya göre asenkron uygunsa onu seç best practice, uygun değilse senkron yap.
+Senkronda a , bye bilgi yolladı ve ya istek yaptı, b ayakta değilse o an , istek çöpe gitti
+Asenkronda ise a message kuyruğuna gönderdi bitti, asla kaybolmuyor, b ayakta olduğunda ona gidiyor zatenmesaj kuyruğundan
+-> birbirlerinin dblerine erişmemeleri gerekir mümkün olduğunca ve kendi dbleri olmalı
+
+Mesaj ve Event arasındaki fark
+-----------------------------------
+
+Mesaj : (örn WordToPdf)
+-------------------------
+- İşlenmesi için gerekli datayı taşır (örn : mesaj içinde bir byte[] var  word gönderdi geriye pdf gelecek biliyor, subscriber da al pdf der)
+- Mesajı gönderen mesajın nasıl işleneceğini bilir
+
+     <-----------------------------
+Publisher -> Message Broker -> Subscriber
+
+Event : (örn UserCreatedEvent, OrderCreatedEvent)
+-------------------------
+- Eventler bir notification sistemi sağlar. (örn : aldığı kullanıcı bilgisine mail gönderir) Basit bir data gelir, Id, mail vs gibi bu nedenle mesajdan daha hafif.
+- Eventi fırlatan onun nasıl ele alınacağını bilmez
+
+Publisher -> Message Broker -> Subscriber
+
+
+Microservice dblerinde nasıl data tutulmalı?
+-------------------------------------------------
+1 - Microservice A -> CourseId, CourseName, CoursePicture, CourseDescription, CoursePrice, CourseCategoryId (Kursları içeren API)
+2 - Microservice B -> OrderId, CourseName, CoursePrice (Sipariş oluşturan API)
+ 2de sadece CourseId olsa sipariş oluşturmak için bir istek daha atıp kursun fiyatını çekmek zorunda kalırdı, ama kendi kendisine sipariş oluşturabilmesi lazım, o nedenle microservislerde aynı datalar tutulabilir, bağımsız olarak hayatlarına devam etmeliler.
+ 
+Microservisler arası veri bütünlüğü nasıl sağlanabilir? (distributed transactionı nasıl yönetebiliriz)
+------------------------------------
+örn. üstteki örnekteki 1. api olan kurs apisinde kursun adı değişirse, sepet apisinde kursun adı nasıl güncellenip tutarlılık sağlanır?
+Two phase commit
+Saga Pattern
+Eventual Consistency : nihai tutarlılık 
+
+Eventual Consistency : nihai tutarlılık :
+-----------------------------------------
+Microservise A kurs listesi olsa, MicroserviceB  sipariş geçmişi  olsa
+Microservise A'da CourseName değiştirince > MessageBroker'a gönderir > Microservice B alabildiğinde alır ve CouseName alanını günceller
+Ne zaman eventual consistency kullanmalı? MicroserviceA'da değişen bilgi saa 14te değişse ve MicroserviceBye saat 20de yansısa sorun olur mu? 
+	Hayır ise Eventual Consistency OK.
+	
+	
+	
+Proje :
+Kullanıcı kayıt olcak
+kurslarımızı eklicez
+başka kullanıcılar da bu kursları satın alacak
+	
+	
+7 microservis, bunarı tüketen bir Asp.Net Mvc
+-------------------------------------------------------
+Catalog API : Kurs bilgileri MongoDBde, istek yaparken kullanılan JWT içnde kurs bilgisine üyelik bilgisine gerek yok çünkü kullancı üye olmadan da kurs blgilerini görebilir
+Basket API : Sepet apisi, Redis , istek yaparken kullanılan JWT içnde kullanıcı, üyelik bilgisine gerek var
+Order API : Sipariş apisi SQL Server , EFCore ORM, istek yaparken kullanılan JWT içnde kullanıcı, üyelik bilgisine gerek var
+Discount API :  Sepette indirim kodu girilirse indirim uygulayan API PostgreDb, Dapper Micro ORM, istek yaparken kullanılan JWT içnde kullanıcı, üyelik bilgisine gerek var
+Fake Payment API : true/false döndürür
+Identity Server : token veren SQExpress, EF core
+Photo Stock API : fotoğrafları tutuar ve döner, istek yaparken kullanılan JWT içnde kurs bilgisine üyelik bilgisine gerek yok çünkü kullancı üye olmadan da kurs fotolarını görebilir
+
+APU Gateway : Ocelot
+Message Broken : RabbitMQ
+
+Nasıl dockerize ederiz ?
+----------------------------
+1 - Her microservis kodlaması bitince hemen dockerize edip ayağa kaldırabilirz
+2 - Tüm uygulama bitince dockerize edebiliriz.
+
+Burada 2.yi yapıcaz, herşey localhost üzerinde çalışıyor olunca docker ortamında ayağa kaldırıcaz.
+
+
+
+###############################################################################
+
+MongoDB .  docs.mongodb.com
+------------
+İlişkisel olmayan db :  İlişkisel yapı gerekmiyorsa, dinamik yani ileride artabilcek sütunlarsa mantıklı
+her satırda gerekli property sayısı değişbilir, default değer verme gereği yok, property eklenirse migration yok..
+
+SQL					MongoDB
+---------			-------------
+DataBase			DataBase
+Table				Collection
+Row					Json Document 
+Column				Field
+
+Ama ilişki kavramı yok değil : https://www.mongodb.com/docs/v6.0/tutorial/model-embedded-one-to-many-relationships-between-documents/
+
+1-1 , 1-to-Many
+	embed pattern : category nesnesi, product nesneleri içinde categoryId veya category nesnesi içinde product nesneleri dizisi şeklinde 2 yöntem
+	subset pattern (reference) : 2sine benziyo, category içine productları dizi olarak gömme
+
+genelde 1-1 :embed, 1-to-many subset mantıklı gibi
+aşağıdaki her course için 1 feature var, reference olarak gmmek mantıklı sadece 1kaç propertysi var zaten, ama course çok category reference olarak her coourse içinde tanımlamak çok mantıkı değil, embed maantıklı bunun için de.
+
+
+category > 1-to-many > course > 1-to1 > feature
+
+category:
+{
+"id":"1",
+"name":"asp.net core"
+}
+
+course:
+{
+"id":"1",
+"name":"asp.net core eğitimi",
+"price":"100",
+"description":"kurs detayları",
+"feature":{"duration":10, downloadable:true},
+"category_id":1
+}
+
+MongoDB.Driver lib
