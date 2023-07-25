@@ -35,3 +35,5 @@ builder.Services.AddSingleton<IDatabaseSettings>(sp =>
 });
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Service ekledik direk dto döncez diye, repo eklemeden direk servisten devam ettik yoksa normalde repo ekleyerek devam ederdik.
