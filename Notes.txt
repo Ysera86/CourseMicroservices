@@ -205,3 +205,14 @@ course:
 }
 
 MongoDB.Driver lib
+
+---------------------------------------------------------------------------
+
+Shared Class Library  : microservislerde ortak kullanılacak yapılar
+
+ResponseDto<T>
+ErrorDto
+NoContent
+
+
+Identity Server .Net 3.1 kullanıyor, sonrası ücretli. Bu nedenle Identity Server projemiz ve onun da kullanacağı bir proje olduğu için Shared projemiz .Net 3.1 Class Library bir proje oldu.
