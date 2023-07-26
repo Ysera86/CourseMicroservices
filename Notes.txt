@@ -264,3 +264,17 @@ dotnet new is4aspid --name FreeCourse.IdentityServer
 									Çıkış koduyla ilgili ayrıntılar için şu sayfaya bakın: https://aka.ms/templating-exit-codes#104
 
 
+##########################################################
+
+SqlServer as a container
+
+portainerda app templates kısmında Sql Server on Linux 
+
+name : identityDb
+Sa password : Password12*
+
+advanced : port mapping  1433:1433
+
+Deploy the container
+
+--->> dockerda da görebiliriz identityDb isimli container ayağa kalktı
