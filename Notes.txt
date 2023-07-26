@@ -349,3 +349,6 @@ ama en başta bi çalıştırıp bakalım hata var mı :  update-database
 2sinde de bağlanıp tüm tabloları gördük ve f5 :  seed data da oluştu.
 
 volume oluşturmadık = datalar kaybolacak. container kapatınca kaldırınca vs docker compose ile oluşturucaz.
+
+Hazır template indirdik, biçok endpoint hali hazırda var.
+Discovery Endpoint : endpoint Info scope vs bilgileri

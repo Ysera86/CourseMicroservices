@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "28db821d-90cc-47e4-b16b-2afcdd43852b",
+		"name": "FreeCouse.IdentityServer.MicroServiceProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14500009"
+	},
+	"item": [
+		{
+			"name": "IdentityServer..Discovery endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5001/.well-known/openid-configuration",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						".well-known",
+						"openid-configuration"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
