@@ -278,3 +278,74 @@ advanced : port mapping  1433:1433
 Deploy the container
 
 --->> dockerda da görebiliriz identityDb isimli container ayağa kalktı
+
+IdentityServer.appsettings.json :
+--------------------------------
+ "ConnectionStrings": {
+    "DefaultConnection": "Data Source=AspIdUsers.db;"
+  }
+
+değiştirip aşağıdaki gibi yaptık, dockerda verdiğimiz zaman env değişken ile ezicez
+
+ "ConnectionStrings": {
+     "DefaultConnection": "Server=localhost,1433;Database=IdentityDb;User=sa;Password=Password12*"
+  }
+
+
+
+Startup içinde: sqllite değiştiricez :  efcore sqlserver paketini indirdik 3.1.5 versiyonunu
+--------------
+       services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+değiştirip UseSqlite> UseSqlServer :
+----------------------------------------
+		services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+varsayılan olarak oluşan Migration  klasörünü sildik. Otomatik migration olması için Program.cs içinde aşağıdakini yazdık.
+
+IdentityServer.Program.cs : 
+-----------------------------
+                #region oto migration olsun 
+
+
+                using (var scope = host.Services.CreateScope())
+                {
+                    var serviceProvider = scope.ServiceProvider;
+                    var applicationDbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+                    // getservice de var ama getrequiredservice eğer yoksa hata verir, bizde olmak zorunda bu servis, o ne GetRequiredService kullandık
+
+
+                    // uygulama ayağa kalkarken TÜM migrationları dbye uygular
+                    applicationDbContext.Database.Migrate();
+
+                    var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+                    if (!userManager.Users.Any())
+                    {
+                        // kullanıcının oluşmasını bekleyelim senkron olsun
+                        userManager.CreateAsync(new ApplicationUser { UserName = "ysera",Email="merve.ugursac34@gmail.com", City = "İstanbul" }, "Password12*").Wait();
+                        //kullanıcı şifresi için IdentityServer 1 büyük harf, sayısal ve alpha numeric karakter bekler.
+                    }
+                }
+
+
+                #endregion
+
+
+SqlManagerdan :  localhost,1433  , sa, Password12* ile bağlanabildimmm sqlserver containerıma
+DBeaver : sa, Password12* direk bağlanabildik localhost ve 1433 hazır yazıyordu
+
+
+IdentityServer projesi set as stat up ve packagemanagerconsoleda da IdentityServer projesi seçip
+package manager console üzerinden add-migration initial çalıştırdık. update-database gerek yok çnk migraiton oto. app ayağa kalkarken otomatik çalışacak.
+ama en başta bi çalıştırıp bakalım hata var mı :  update-database
+
+
+
+2sinde de bağlanıp tüm tabloları gördük ve f5 :  seed data da oluştu.
+
+volume oluşturmadık = datalar kaybolacak. container kapatınca kaldırınca vs docker compose ile oluşturucaz.
