@@ -7,9 +7,9 @@ using System.Net;
 
 namespace FreeCourse.Services.Catalog.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    internal class CoursesController : CustomBaseController //ControllerBase
+    public class CoursesController : CustomBaseController //ControllerBase
     {
         private readonly ICourseService _courseService;
 
@@ -26,7 +26,7 @@ namespace FreeCourse.Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
-        //[HttpGet]
+        [HttpGet]
         [Route("/api/[controller]/GetAllByUserId/{userId}")] // api/courses/getallbyuserid/5  // yapmak gerekti  [HttpGet("{id}")] veremezdik GetById endpointi öyle çnk nasıl karar versin bu şekilde.
         public async Task<IActionResult> GetAllByUserId(string userId)
         {
