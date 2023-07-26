@@ -215,4 +215,52 @@ ErrorDto
 NoContent
 
 
-Identity Server .Net 3.1 kullanıyor, sonrası ücretli. Bu nedenle Identity Server projemiz ve onun da kullanacağı bir proje olduğu için Shared projemiz .Net 3.1 Class Library bir proje oldu.
+Identity Server .Net 3.1 kullanıyor, sonrası ücretli (Duende). Bu nedenle Identity Server projemiz ve onun da kullanacağı bir proje olduğu için Shared projemiz .Net 3.1 Class Library bir proje oldu.
+
+
+hızlı bir template : 
+https://github.com/IdentityServer/IdentityServer4.Templates
+templateleri indir ve seçtiğini kullan : templateleri CLIdan çektik ,önce klasör oluşturduk IdentityServer diye dizinde ve o yola gidip ilgili template komutunu çalıştırdık, biz seed yapmicaz kendi datalarımızı atıcaz seed için n dicez,  snr add existing project ile *.csprojunu eklicez.
+
+CLI :
+
+dotnet new -i identityserver4.templates
+									
+									Yanıt :
+
+									Uyarı: 'dotnet new --install' kullanım dışı bırakıldı. Bunun yerine 'dotnet new install' kullanın.
+									Daha fazla bilgi için şu komutu çalıştırın:
+									   dotnet new install -h
+
+									Şu şablon paketleri yüklenecek:
+									   identityserver4.templates
+
+									Başarılı: IdentityServer4.Templates::4.0.1 şu paketleri yükledi:
+									Şablon Adı                                            Kısa Ad   Dil   Etiketler
+									----------------------------------------------------  --------  ----  -------------------
+									IdentityServer4 Empty                                 is4empty  [C#]  Web/IdentityServer4
+									IdentityServer4 Quickstart UI (UI assets only)        is4ui     [C#]  Web/IdentityServer4
+									IdentityServer4 with AdminUI                          is4admin  [C#]  Web/IdentityServer4
+									IdentityServer4 with ASP.NET Core Identity            is4aspid  [C#]  Web/IdentityServer4
+									IdentityServer4 with Entity Framework Stores          is4ef     [C#]  Web/IdentityServer4
+									IdentityServer4 with In-Memory Stores and Test Users  is4inmem  [C#]  Web/IdentityServer4
+
+									PS C:\Users\merve>
+
+
+dotnet new is4aspid --name FreeCourse.IdentityServer
+									
+									Yanıt :
+
+									"IdentityServer4 with ASP.NET Core Identity" şablonu başarıyla oluşturuldu.
+
+									Oluşturma sonrası eylemleri işleniyor...
+									Şablon şu eylemi çalıştıracak şekilde yapılandırıldı:
+									Güncel komut: dotnet run /seed
+									Bu eylemi çalıştırmak istiyor musunuz [Y(evet)|N(hayır)]?
+									n
+
+
+									Çıkış koduyla ilgili ayrıntılar için şu sayfaya bakın: https://aka.ms/templating-exit-codes#104
+
+
