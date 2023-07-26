@@ -41,3 +41,20 @@ Service ekledik direk dto döncez diye, repo eklemeden direk servisten devam etti
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 Portainer : Pcmizdeki imagelarým/containerlarý yönetmemizi saðlayan bir web arayüzü. Bunu da bir container olarak ayaða kaldýrýcaz. Eskiden Docker arayüzü yoktu.
+
+Portainerý containe rolarak ayaða kaldýrmak için -Community Editon:CE- CLI dan > https://docs.portainer.io/start/install-ce/server/docker/linux
+
+
+https://localhost:9443/
+
+þifre : Password123*
+
+portainer açýp, environment portainer týkla, sol menü > App Templates > MongoDb seç
+name : mongodb
+show advanced options : port mapping > host: 27017  container: 27017 öNEMLÝ
+
+Deploy the contaienr.
+
+Sonra > Portainer > Registries kýsmýndan DockerHub kullanýcý adý ve accesstokený ile registry ekledim. Docker hub image alýþveriþi için.
+MongoDb container ayakta.
+MongoDb Compass ile ayar :  mongodb://localhost:27017 ile direk baðlantý.
