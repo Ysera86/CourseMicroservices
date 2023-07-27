@@ -112,6 +112,7 @@ namespace FreeCourse.IdentityServer
                           IdentityServerConstants.StandardScopes.Email,
                           IdentityServerConstants.StandardScopes.Profile,
                           IdentityServerConstants.StandardScopes.OfflineAccess, // refersh token : kullanıcı offline olsa dahi elimdeki refresh token ile yeni bir AccessToken alabilirim. İsmi o nedenle offlineAccess, bu olmazsa refresh tok en olmaz, refresh token olmazsa ye accesstoken süresi uzatılr ki bu iyi değil, ya da kullanıcı her accesstoken ömrü dolduğunda kullanıcıyı login ekranıa döndürmem gerekir.
+                          IdentityServerConstants.LocalApi.ScopeName,
                           "roles"
                       },
 

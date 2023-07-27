@@ -7,104 +7,186 @@
 	},
 	"item": [
 		{
-			"name": "IdentityServer.Discovery endpoint",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://localhost:5001/.well-known/openid-configuration",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						".well-known",
-						"openid-configuration"
-					]
+			"name": "IdentityServer",
+			"item": [
+				{
+					"name": "IdentityServer.Discovery endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/.well-known/openid-configuration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								".well-known",
+								"openid-configuration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IdentityServer.Token endpoint - ResurceOwnerCredentials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "WebMvcClientForUser",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "email2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Password12*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5001/connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IdentityServer.User.Signup",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzY1NDMsImV4cCI6MTY5MDQ0MDE0MywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6WyJyZXNvdXJjZV9jYXRhbG9nIiwicmVzb3VyY2VfcGhvdG9fc3RvY2siLCJodHRwczovL2xvY2FsaG9zdDo1MDAxL3Jlc291cmNlcyJdLCJjbGllbnRfaWQiOiJXZWJNdmNDbGllbnQiLCJqdGkiOiI0MzJENTVBNUQ5NjY1RDQyMDE4ODNERDlGREFFNTYwRSIsImlhdCI6MTY5MDQzNjU0Mywic2NvcGUiOlsiY2F0YWxvZ19mdWxscGVybWlzc2lvbiIsIklkZW50aXR5U2VydmVyQXBpIiwicGhvdG9fc3RvY2tfZnVsbHBlcm1pc3Npb24iXX0.drEHFmX7O5958Z9CcyP34yo-VcmZwB7NGakoZhD3yWiPJ8fdv-lvZZ6cpWePTPX9jZB4RrlARZ8vWdqcY68X2ingmxDodeDDHOaHtKl0X46eS8BbKVeeLn9vyTGoQ86vAEi-fAWWFo0Q2FKtRJlclkyYow5lagk1W2lbgMe-Aiuc7I2gV_kp3wARB5t8EM64rN0qGsU3cl6zgtYLI7ODcOA8Iuu2EzM_X7b8VwedUDFdQrRKDb47W8-nK8PoIAyiZ3yhQOWOHJFSSRQuzEUg2hg-ltANWcvPf_lZpwu02GACnis1_Hi8i9bliBVPBQz8CrkVhxe9Wy2Fr8AlISwtVQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\":\"user2\",\r\n    \"Email\":\"email2@gmail.com\",\r\n    \"Password\":\"Password12*\",\r\n    \"City\":\"City2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/users/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "IdentityServer.Token endpoint",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "client_id",
-							"value": "WebMvcClient",
-							"type": "text"
+			"name": "Catalog.API",
+			"item": [
+				{
+					"name": "Categories GET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzkyOTMsImV4cCI6MTY5MDQ0Mjg5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiM0MwMDhENjAxODhDQkI3RDUxREZCNTQzRTgzNDFBRTgiLCJpYXQiOjE2OTA0MzkyOTMsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.K4YYVh7HBTLm4pv8aIYm2LzhTOVYr1qfChPT2wyQe_onAo8F7WnEMY9EtYMG6FXpC76JpPEusvcni0oKpEN4mpC3L8_tRZhFNIc-1QyyGAgoDQzaGHI_awFFIHR22MK0OoGsD-mLyGHC67WnRkIONfi5_gxEqh698Y5Vr8TdrOQSlB2XtUXnx2zkcnPx2nJxiYlNDRGnejwEtA79ngGW0PU6XBdG3rG6u7HvRYMvWVNqsTbh3rDI4OgKFYgH5hrVvmmkegjsHPnDh3ssEi8_HiTpahX1m8ZR5MLWDn6TxEVaqdywORcgU9ZtRj2rJa1ZXylzS_j4mCJYw7OoIkVlIA",
+									"type": "string"
+								}
+							]
 						},
-						{
-							"key": "client_secret",
-							"value": "secret",
-							"type": "text"
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5011/api/Categories/GetAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5011",
+							"path": [
+								"api",
+								"Categories",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Courses GET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzkyOTMsImV4cCI6MTY5MDQ0Mjg5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiM0MwMDhENjAxODhDQkI3RDUxREZCNTQzRTgzNDFBRTgiLCJpYXQiOjE2OTA0MzkyOTMsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.K4YYVh7HBTLm4pv8aIYm2LzhTOVYr1qfChPT2wyQe_onAo8F7WnEMY9EtYMG6FXpC76JpPEusvcni0oKpEN4mpC3L8_tRZhFNIc-1QyyGAgoDQzaGHI_awFFIHR22MK0OoGsD-mLyGHC67WnRkIONfi5_gxEqh698Y5Vr8TdrOQSlB2XtUXnx2zkcnPx2nJxiYlNDRGnejwEtA79ngGW0PU6XBdG3rG6u7HvRYMvWVNqsTbh3rDI4OgKFYgH5hrVvmmkegjsHPnDh3ssEi8_HiTpahX1m8ZR5MLWDn6TxEVaqdywORcgU9ZtRj2rJa1ZXylzS_j4mCJYw7OoIkVlIA",
+									"type": "string"
+								}
+							]
 						},
-						{
-							"key": "grant_type",
-							"value": "client_credentials",
-							"type": "text"
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5011/api/Courses/GetAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5011",
+							"path": [
+								"api",
+								"Courses",
+								"GetAll"
+							]
 						}
-					]
-				},
-				"url": {
-					"raw": "https://localhost:5001/connect/token",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"connect",
-						"token"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "IdentityServer.User.Signup",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzY1NDMsImV4cCI6MTY5MDQ0MDE0MywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMSIsImF1ZCI6WyJyZXNvdXJjZV9jYXRhbG9nIiwicmVzb3VyY2VfcGhvdG9fc3RvY2siLCJodHRwczovL2xvY2FsaG9zdDo1MDAxL3Jlc291cmNlcyJdLCJjbGllbnRfaWQiOiJXZWJNdmNDbGllbnQiLCJqdGkiOiI0MzJENTVBNUQ5NjY1RDQyMDE4ODNERDlGREFFNTYwRSIsImlhdCI6MTY5MDQzNjU0Mywic2NvcGUiOlsiY2F0YWxvZ19mdWxscGVybWlzc2lvbiIsIklkZW50aXR5U2VydmVyQXBpIiwicGhvdG9fc3RvY2tfZnVsbHBlcm1pc3Npb24iXX0.drEHFmX7O5958Z9CcyP34yo-VcmZwB7NGakoZhD3yWiPJ8fdv-lvZZ6cpWePTPX9jZB4RrlARZ8vWdqcY68X2ingmxDodeDDHOaHtKl0X46eS8BbKVeeLn9vyTGoQ86vAEi-fAWWFo0Q2FKtRJlclkyYow5lagk1W2lbgMe-Aiuc7I2gV_kp3wARB5t8EM64rN0qGsU3cl6zgtYLI7ODcOA8Iuu2EzM_X7b8VwedUDFdQrRKDb47W8-nK8PoIAyiZ3yhQOWOHJFSSRQuzEUg2hg-ltANWcvPf_lZpwu02GACnis1_Hi8i9bliBVPBQz8CrkVhxe9Wy2Fr8AlISwtVQ",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"UserName\":\"user2\",\r\n    \"Email\":\"email2@gmail.com\",\r\n    \"Password\":\"Password12*\",\r\n    \"City\":\"City2\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "https://localhost:5001/api/users/signup",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "5001",
-					"path": [
-						"api",
-						"users",
-						"signup"
-					]
-				}
-			},
-			"response": []
+			]
 		}
 	]
 }

@@ -23,7 +23,7 @@ namespace FreeCourse.IdentityServer.Services
         public async Task ValidateAsync(ResourceOwnerPasswordValidationContext context)
         {
             var userExists = await _userManager.FindByEmailAsync(context.UserName);
-            if (userExists != null)
+            if (userExists == null)
             {
                 var errors = new Dictionary<string, object>();
                 errors.Add("errors", new List<string>() { "Wrong email or password" });
