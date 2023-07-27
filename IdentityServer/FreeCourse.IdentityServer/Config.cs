@@ -4,6 +4,7 @@
 
 using IdentityServer4;
 using IdentityServer4.Models;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using static IdentityServer4.Models.IdentityResources;
@@ -24,6 +25,9 @@ namespace FreeCourse.IdentityServer
 
         #endregion
 
+        /// <summary>
+        /// Resource Owner Credential ile bir token alındığında clientlar, kullanıcı hakkında hangi bilgilere sahip olacak.
+        /// </summary>
         public static IEnumerable<IdentityResource> IdentityResources =>
                    new IdentityResource[]
                    {
@@ -32,6 +36,11 @@ namespace FreeCourse.IdentityServer
                 //new IdentityResources.Profile(), 
 	            #endregion
                  
+                       new IdentityResources.OpenId(), // olmak zorunda jwt.sub , kullanıcı Id claimi
+                       new IdentityResources.Email(), // email claimi
+                       new IdentityResources.Profile(),
+                       new IdentityResource(){Name="roles", DisplayName="Roles", Description = "User roles", UserClaims=new []{ "role"} } // role adındaki claimime maplensin
+
                    };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -85,8 +94,32 @@ namespace FreeCourse.IdentityServer
                     ClientId="WebMvcClient",
                     ClientSecrets= { new Secret("secret".Sha256())},
 
-                    AllowedGrantTypes = GrantTypes.ClientCredentials, // sabitler refresh token olmaz burda zaten üyelik sistmei yok
+                    AllowedGrantTypes = GrantTypes.ClientCredentials, // refresh token olmaz burda zaten üyelik sistmei yok
                     AllowedScopes = {"catalog_fullpermission","photo_stock_fullpermission",IdentityServerConstants.LocalApi.ScopeName}
+                },
+                
+                new Client
+                {
+                    ClientName="Asp.Net Core MVC For User",
+                    ClientId="WebMvcClientForUser",
+                    AllowOfflineAccess = true,
+                    ClientSecrets= { new Secret("secret".Sha256())},
+
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword, // üyelik sistemi, refresh token var
+                    AllowedScopes = 
+                      {
+                          IdentityServerConstants.StandardScopes.OpenId,
+                          IdentityServerConstants.StandardScopes.Email,
+                          IdentityServerConstants.StandardScopes.Profile,
+                          IdentityServerConstants.StandardScopes.OfflineAccess, // refersh token : kullanıcı offline olsa dahi elimdeki refresh token ile yeni bir AccessToken alabilirim. İsmi o nedenle offlineAccess, bu olmazsa refresh tok en olmaz, refresh token olmazsa ye accesstoken süresi uzatılr ki bu iyi değil, ya da kullanıcı her accesstoken ömrü dolduğunda kullanıcıyı login ekranıa döndürmem gerekir.
+                          "roles"
+                      },
+
+                    AccessTokenLifetime = 1* 60 * 60, // 1 saat
+
+                    RefreshTokenExpiration = TokenExpiration.Absolute,
+                    AbsoluteRefreshTokenLifetime = (int)(DateTime.Now.AddDays(60) - DateTime.Now).TotalSeconds, // 60 gün
+                    RefreshTokenUsage = TokenUsage.ReUse
                 }
             };
     }
