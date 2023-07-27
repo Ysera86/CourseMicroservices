@@ -352,3 +352,17 @@ volume oluşturmadık = datalar kaybolacak. container kapatınca kaldırınca vs
 
 Hazır template indirdik, biçok endpoint hali hazırda var.
 Discovery Endpoint : endpoint Info scope vs bilgileri
+
+
+
+--------------------------------------------------------------
+
+
+#region Authorize 1 kere ekleyip tüm controllerlara etki etmesi için 
+
+builder.Services.AddControllers(opts =>
+{
+    opts.Filters.Add(new AuthorizeFilter());
+});
+
+#endregion
