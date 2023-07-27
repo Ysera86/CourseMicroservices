@@ -28,6 +28,9 @@ namespace FreeCourse.IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //.. Claim bazlı yetkilendirme var, policy ekliyor arkaplanda. Usercontroller.[Authorize(LocalApi.PolicyName)] ile de o policy kullanrak claim bazlı yetkilendirme kullanmış oluyorum
+            services.AddLocalApiAuthentication();
+            //..
             services.AddControllersWithViews();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -83,6 +86,11 @@ namespace FreeCourse.IdentityServer
 
             app.UseRouting();
             app.UseIdentityServer();
+
+            //..
+            app.UseAuthentication();
+            //..
+
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
