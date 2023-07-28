@@ -20,6 +20,7 @@ namespace FreeCourse.IdentityServer
             {
                 new ApiResource("resource_catalog") { Scopes={"catalog_fullpermission"}},
                 new ApiResource("resource_photo_stock") { Scopes={"photo_stock_fullpermission"}},
+                new ApiResource("resource_basket") { Scopes={"basket_fullpermission"}},
                 new ApiResource(IdentityServerConstants.LocalApi.ScopeName ),
             };
 
@@ -52,6 +53,7 @@ namespace FreeCourse.IdentityServer
 	            #endregion
             new ApiScope("catalog_fullpermission","Full access for Catalog API" ),
             new ApiScope("photo_stock_fullpermission","Full access for Photo Stock API" ),
+            new ApiScope("basket_fullpermission","Full access for Basket API" ),
             new ApiScope(IdentityServerConstants.LocalApi.ScopeName,"Full access for IdentityServer API" ),
             };
 
@@ -113,8 +115,9 @@ namespace FreeCourse.IdentityServer
                           IdentityServerConstants.StandardScopes.Profile,
                           IdentityServerConstants.StandardScopes.OfflineAccess, // refersh token : kullanıcı offline olsa dahi elimdeki refresh token ile yeni bir AccessToken alabilirim. İsmi o nedenle offlineAccess, bu olmazsa refresh tok en olmaz, refresh token olmazsa ye accesstoken süresi uzatılr ki bu iyi değil, ya da kullanıcı her accesstoken ömrü dolduğunda kullanıcıyı login ekranıa döndürmem gerekir.
                           IdentityServerConstants.LocalApi.ScopeName, // olmasa IdentityServera istek atamazdı bu client
-                          "roles"
-                      },
+                          "roles",
+                          "basket_fullpermission"
+                    },
 
                     AccessTokenLifetime = 1* 60 * 60, // 1 saat
 

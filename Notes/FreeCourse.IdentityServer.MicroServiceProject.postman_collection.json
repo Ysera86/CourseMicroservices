@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "28db821d-90cc-47e4-b16b-2afcdd43852b",
-		"name": "FreeCouse.IdentityServer.MicroServiceProject",
+		"name": "FreeCourse.IdentityServer.MicroServiceProject",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "14500009"
 	},
@@ -227,7 +227,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzkyOTMsImV4cCI6MTY5MDQ0Mjg5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiM0MwMDhENjAxODhDQkI3RDUxREZCNTQzRTgzNDFBRTgiLCJpYXQiOjE2OTA0MzkyOTMsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.K4YYVh7HBTLm4pv8aIYm2LzhTOVYr1qfChPT2wyQe_onAo8F7WnEMY9EtYMG6FXpC76JpPEusvcni0oKpEN4mpC3L8_tRZhFNIc-1QyyGAgoDQzaGHI_awFFIHR22MK0OoGsD-mLyGHC67WnRkIONfi5_gxEqh698Y5Vr8TdrOQSlB2XtUXnx2zkcnPx2nJxiYlNDRGnejwEtA79ngGW0PU6XBdG3rG6u7HvRYMvWVNqsTbh3rDI4OgKFYgH5hrVvmmkegjsHPnDh3ssEi8_HiTpahX1m8ZR5MLWDn6TxEVaqdywORcgU9ZtRj2rJa1ZXylzS_j4mCJYw7OoIkVlIA",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1NTQxMjQsImV4cCI6MTY5MDU1NzcyNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiRkJGMDcyMTc0QUVBREJGRkMzM0EzQTFGRDg0NTdCMTAiLCJpYXQiOjE2OTA1NTQxMjQsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.fy97NFN9vRgZ8lWCCwy8e03gdpeXG5u3jagbGqGigipSxLRNDiZXzXLweQ7I8bWzHVjb34kts6FjrwWH4I3fzr3ccqFFenHQ9Ul8-6LrymexAm29fBxl4EKB14HdgXZVbpcdYKOApfh0wfXoAnVSFvV_VffzOH-zh5GLUgXniiFQJkpeS6PLYE-AdpTgQ59aWGgKWRUOo_H28V7J2YuHK0Bt359AsbYfA2BdjHAxosCUg5md6xA2DOOGgFyryBq5Spj2ljz9Bl8s7dNXErgiRduMm1pcmUwpt89ZMnbe5shDPQHCopPgvJkArZYa2-_dAbilCpaJX1iPRL4dH54IBw",
 									"type": "string"
 								}
 							]
@@ -251,6 +251,46 @@
 					"response": []
 				},
 				{
+					"name": "Courses GET Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1NTQxMjQsImV4cCI6MTY5MDU1NzcyNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiRkJGMDcyMTc0QUVBREJGRkMzM0EzQTFGRDg0NTdCMTAiLCJpYXQiOjE2OTA1NTQxMjQsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.fy97NFN9vRgZ8lWCCwy8e03gdpeXG5u3jagbGqGigipSxLRNDiZXzXLweQ7I8bWzHVjb34kts6FjrwWH4I3fzr3ccqFFenHQ9Ul8-6LrymexAm29fBxl4EKB14HdgXZVbpcdYKOApfh0wfXoAnVSFvV_VffzOH-zh5GLUgXniiFQJkpeS6PLYE-AdpTgQ59aWGgKWRUOo_H28V7J2YuHK0Bt359AsbYfA2BdjHAxosCUg5md6xA2DOOGgFyryBq5Spj2ljz9Bl8s7dNXErgiRduMm1pcmUwpt89ZMnbe5shDPQHCopPgvJkArZYa2-_dAbilCpaJX1iPRL4dH54IBw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Redis Course 1\",\r\n  \"price\":  120,\r\n  \"description\": \"A detailed Redis Course\",\r\n  \"picture\": \"string\",\r\n  \"userId\": \"8f771a64-0d10-4eb7-b733-4128fef8bf9a\",\r\n  \"feature\": {\r\n    \"duration\": 220,\r\n    \"downloadable\": true\r\n  },\r\n  \"categoryId\": \"64c3cf94fb2c97a5a3e90b65\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5011/api/Courses/Create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5011",
+							"path": [
+								"api",
+								"Courses",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Categories GET",
 					"request": {
 						"auth": {
@@ -258,7 +298,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzkyOTMsImV4cCI6MTY5MDQ0Mjg5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiM0MwMDhENjAxODhDQkI3RDUxREZCNTQzRTgzNDFBRTgiLCJpYXQiOjE2OTA0MzkyOTMsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.K4YYVh7HBTLm4pv8aIYm2LzhTOVYr1qfChPT2wyQe_onAo8F7WnEMY9EtYMG6FXpC76JpPEusvcni0oKpEN4mpC3L8_tRZhFNIc-1QyyGAgoDQzaGHI_awFFIHR22MK0OoGsD-mLyGHC67WnRkIONfi5_gxEqh698Y5Vr8TdrOQSlB2XtUXnx2zkcnPx2nJxiYlNDRGnejwEtA79ngGW0PU6XBdG3rG6u7HvRYMvWVNqsTbh3rDI4OgKFYgH5hrVvmmkegjsHPnDh3ssEi8_HiTpahX1m8ZR5MLWDn6TxEVaqdywORcgU9ZtRj2rJa1ZXylzS_j4mCJYw7OoIkVlIA",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1NTQxMjQsImV4cCI6MTY5MDU1NzcyNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiRkJGMDcyMTc0QUVBREJGRkMzM0EzQTFGRDg0NTdCMTAiLCJpYXQiOjE2OTA1NTQxMjQsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.fy97NFN9vRgZ8lWCCwy8e03gdpeXG5u3jagbGqGigipSxLRNDiZXzXLweQ7I8bWzHVjb34kts6FjrwWH4I3fzr3ccqFFenHQ9Ul8-6LrymexAm29fBxl4EKB14HdgXZVbpcdYKOApfh0wfXoAnVSFvV_VffzOH-zh5GLUgXniiFQJkpeS6PLYE-AdpTgQ59aWGgKWRUOo_H28V7J2YuHK0Bt359AsbYfA2BdjHAxosCUg5md6xA2DOOGgFyryBq5Spj2ljz9Bl8s7dNXErgiRduMm1pcmUwpt89ZMnbe5shDPQHCopPgvJkArZYa2-_dAbilCpaJX1iPRL4dH54IBw",
 									"type": "string"
 								}
 							]
@@ -276,6 +316,150 @@
 								"api",
 								"Categories",
 								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categories GET Copy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1NTQxMjQsImV4cCI6MTY5MDU1NzcyNCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiRkJGMDcyMTc0QUVBREJGRkMzM0EzQTFGRDg0NTdCMTAiLCJpYXQiOjE2OTA1NTQxMjQsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.fy97NFN9vRgZ8lWCCwy8e03gdpeXG5u3jagbGqGigipSxLRNDiZXzXLweQ7I8bWzHVjb34kts6FjrwWH4I3fzr3ccqFFenHQ9Ul8-6LrymexAm29fBxl4EKB14HdgXZVbpcdYKOApfh0wfXoAnVSFvV_VffzOH-zh5GLUgXniiFQJkpeS6PLYE-AdpTgQ59aWGgKWRUOo_H28V7J2YuHK0Bt359AsbYfA2BdjHAxosCUg5md6xA2DOOGgFyryBq5Spj2ljz9Bl8s7dNXErgiRduMm1pcmUwpt89ZMnbe5shDPQHCopPgvJkArZYa2-_dAbilCpaJX1iPRL4dH54IBw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"C#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5011/api/Categories/Create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5011",
+							"path": [
+								"api",
+								"Categories",
+								"Create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Basket.API",
+			"item": [
+				{
+					"name": "Baskets SaveOrUpdate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1NTQ0ODEsImV4cCI6MTY5MDU1ODA4MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2Jhc2tldCIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50Rm9yVXNlciIsInN1YiI6IjhmNzcxYTY0LTBkMTAtNGViNy1iNzMzLTQxMjhmZWY4YmY5YSIsImF1dGhfdGltZSI6MTY5MDU1NDQ4MSwiaWRwIjoibG9jYWwiLCJqdGkiOiIzNDIxOUQ1NkFDODQyNjU2OTgxNjlGODZCMjI4RkEzQyIsImlhdCI6MTY5MDU1NDQ4MSwic2NvcGUiOlsiYmFza2V0X2Z1bGxwZXJtaXNzaW9uIiwiZW1haWwiLCJJZGVudGl0eVNlcnZlckFwaSIsIm9wZW5pZCIsInByb2ZpbGUiLCJyb2xlcyIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.t48ds_BiDXN_6MaeAIzPfoAEwahMmEtWiJ68BKBLlpzJqf_K0DayRezYGDRt59w9ivQDTnG8Mtv_MjCEThzglUV43WMYGKh34U_B94VzH9YovL6wob3iOklHbM4wy54BsSIOYV1MsOEaD_Up-5dTgqDzJHUzaRkMhbZcHQLK5SJ9UQRTNAs5o5E55wVnf50iTtReN-kl7F79mVaxOTV8Vu4YZf2JYUc81JFx_r-dbB-V1rjfmzio-vS8dVWRPg0mALzzp2M29Wc-jJtD0eimLBhFyRvv1moGgkdmlxwv2_O445gLqRCeTYh240riHlpW18p54p6mgAePruMyGA7b_g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"8f771a64-0d10-4eb7-b733-4128fef8bf9a\",\r\n  \"discountCode\": \"DC10\",\r\n  \"basketItems\": [\r\n    {\r\n      \"quantity\": 1,\r\n      \"courseId\": \"64c3d015fb2c97a5a3e90b68\",\r\n      \"courseName\": \"Redis Course 1\",\r\n      \"price\": 120\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5013/api/Baskets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5013",
+							"path": [
+								"api",
+								"Baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baskets GET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1NTQ0ODEsImV4cCI6MTY5MDU1ODA4MSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2Jhc2tldCIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50Rm9yVXNlciIsInN1YiI6IjhmNzcxYTY0LTBkMTAtNGViNy1iNzMzLTQxMjhmZWY4YmY5YSIsImF1dGhfdGltZSI6MTY5MDU1NDQ4MSwiaWRwIjoibG9jYWwiLCJqdGkiOiIzNDIxOUQ1NkFDODQyNjU2OTgxNjlGODZCMjI4RkEzQyIsImlhdCI6MTY5MDU1NDQ4MSwic2NvcGUiOlsiYmFza2V0X2Z1bGxwZXJtaXNzaW9uIiwiZW1haWwiLCJJZGVudGl0eVNlcnZlckFwaSIsIm9wZW5pZCIsInByb2ZpbGUiLCJyb2xlcyIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.t48ds_BiDXN_6MaeAIzPfoAEwahMmEtWiJ68BKBLlpzJqf_K0DayRezYGDRt59w9ivQDTnG8Mtv_MjCEThzglUV43WMYGKh34U_B94VzH9YovL6wob3iOklHbM4wy54BsSIOYV1MsOEaD_Up-5dTgqDzJHUzaRkMhbZcHQLK5SJ9UQRTNAs5o5E55wVnf50iTtReN-kl7F79mVaxOTV8Vu4YZf2JYUc81JFx_r-dbB-V1rjfmzio-vS8dVWRPg0mALzzp2M29Wc-jJtD0eimLBhFyRvv1moGgkdmlxwv2_O445gLqRCeTYh240riHlpW18p54p6mgAePruMyGA7b_g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5013/api/Baskets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5013",
+							"path": [
+								"api",
+								"Baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Baskets Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1NTM0NTMsImV4cCI6MTY5MDU1NzA1MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2Jhc2tldCIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50Rm9yVXNlciIsInN1YiI6IjhmNzcxYTY0LTBkMTAtNGViNy1iNzMzLTQxMjhmZWY4YmY5YSIsImF1dGhfdGltZSI6MTY5MDU1MzQ1MywiaWRwIjoibG9jYWwiLCJqdGkiOiIwQTJDMkRBMkREREUwNjBGMzdGRjdGMTdDMUU3MTYyQSIsImlhdCI6MTY5MDU1MzQ1Mywic2NvcGUiOlsiYmFza2V0X2Z1bGxwZXJtaXNzaW9uIiwiZW1haWwiLCJJZGVudGl0eVNlcnZlckFwaSIsIm9wZW5pZCIsInByb2ZpbGUiLCJyb2xlcyIsIm9mZmxpbmVfYWNjZXNzIl0sImFtciI6WyJwd2QiXX0.eSIogHAW6xwKYKfxEh_FAb3y1BbuaAI9btJSAOVpAAUnQO2j84l_4Zxg10nbvkbWjzBL8KADtt0rT0J50arvQw7DR2UytTdz4Hd_NmqEjA3IXzXU5otGNUWc21Cq_T73MsCWE2TmNGyyO6zvyAzasT8tqA8rOdUPCDB7s55rv_elaRlEa4RT3AcDTSL0FF_SDd4ZOUh5Tk_0VDkBBPGV-TEVaslC1szygoSPOn0AHM1TBMHruDJTn4yYBTCPESa_iya4BeA42if599q8GMwNkSdJm9bccQ2ZkjyJLB1d5FdOqQhGIlkL7dWgsECWO3aB8Mn4Ca0bLWJrqi3LyhVp5g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5013/api/Baskets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5013",
+							"path": [
+								"api",
+								"Baskets"
 							]
 						}
 					},
@@ -340,7 +524,7 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/C:/Users/merve/OneDrive/Resimler/Ekran Görüntüleri/Ekran görüntüsü 2023-03-30 151706.png"
+									"src": "/C:/Users/merve/OneDrive/Resimler/Ekran Görüntüleri/Ekran görüntüsü 2023-07-08 201310.png"
 								}
 							]
 						},
@@ -367,7 +551,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzkyOTMsImV4cCI6MTY5MDQ0Mjg5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiM0MwMDhENjAxODhDQkI3RDUxREZCNTQzRTgzNDFBRTgiLCJpYXQiOjE2OTA0MzkyOTMsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.K4YYVh7HBTLm4pv8aIYm2LzhTOVYr1qfChPT2wyQe_onAo8F7WnEMY9EtYMG6FXpC76JpPEusvcni0oKpEN4mpC3L8_tRZhFNIc-1QyyGAgoDQzaGHI_awFFIHR22MK0OoGsD-mLyGHC67WnRkIONfi5_gxEqh698Y5Vr8TdrOQSlB2XtUXnx2zkcnPx2nJxiYlNDRGnejwEtA79ngGW0PU6XBdG3rG6u7HvRYMvWVNqsTbh3rDI4OgKFYgH5hrVvmmkegjsHPnDh3ssEi8_HiTpahX1m8ZR5MLWDn6TxEVaqdywORcgU9ZtRj2rJa1ZXylzS_j4mCJYw7OoIkVlIA",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA1MzA5MjYsImV4cCI6MTY5MDUzNDUyNiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiMTMxN0VDRkZFQkUyOEIyQzRDRUY0N0M5QjZCODI3MjYiLCJpYXQiOjE2OTA1MzA5MjYsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.zZVsMXLa6WizbiTumIAaTioU0IC-YyrqWwZ-7AKY-DZnFlIttB-Gd94ssydTu8YQ3dSHSHMUUXSg1WuRL8MTurTi3DL96NTxuX06uNwfSh1kLmuIpewhCcroCKc070bPOm4EB4z6ZhFowB4TqfrVZ7iKZy0n9rsBelIgHR994KL_8mxHD1-a7M3dBddOee6PYdFXCKlrG_Offbk32mFiaYbc_u3HQjMYD_TuCk1aIwmiH90_A_a5cp-Y_g2tB2HWagVuC0aNr_hG2DIncDDYPbcMuwnvUZaJLDf4Ej7juz88CJDqVDMj11NA7fFNM3yBsfhMZmx_zIhqIw8UhaDc2g",
 									"type": "string"
 								}
 							]
