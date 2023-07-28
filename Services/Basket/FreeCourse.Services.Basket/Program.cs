@@ -23,8 +23,6 @@ builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 
-#endregion
-
 builder.Services.AddSingleton<RedisService>(sp => 
 {
     var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
@@ -34,6 +32,9 @@ builder.Services.AddSingleton<RedisService>(sp =>
 
     return redis;
 });
+
+#endregion
+
 
 //..
 

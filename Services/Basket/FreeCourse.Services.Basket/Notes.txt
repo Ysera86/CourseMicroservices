@@ -1,4 +1,67 @@
 NoSQL olarak redis kullanýcaz, redis için de nuget paketi StackExchange.Redis kullanýyoruz.
-
+appsettings.json : 
+------------------------
 Host : localhost
-Redis defualt port : 6379
+Port : 6379 ( bu Redis defualt, biz de öyle verdik, bu nedenle portainerdan ayaða kaldýrýrken kendi portumuzu da burda yazdýðýmýx 6379 olarak vericez)
+
+
+------------------
+
+launchSetting.json aþaðýdaki deðiþikliði yaptýk kestrel sunucusunda çnk her 7 microservis için de 7 tarayýcý açmasýn çalýþtýrýnca.
+	"launchBrowser": true, -> false
+
+
+
+appsettings içinde Redis için ayarlarý yaptýk
+  "RedisSettings": {
+    "Host": "localhost",
+    "Port": "6379",
+   },
+
+yalnýz dockerize edicez ileride ve dockerda localhost diye bir kavram yok, o prod. dolayýsýyla env deðiþkenler ile connectionstringi ezicez.
+localhost -> DockerCompose.yml içndeki servisin ismi gelecek buraya
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+//OptionsPattern
+
+/*
+ IOptions<RedisSettings> options
+
+options.Value 
+
+þeklinde kullanabilirdim ama classlarýnctoruna DI olarak IOptions geçmek yerine OptionsPattern ile RedisService  oluþturup okuyup DI olarak RedisService geçebilirim artýk
+ */
+
+ builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+
+builder.Services.AddSingleton<RedisService>(sp => 
+{
+    var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
+    var redis = new RedisService(redisSettings.Host, redisSettings.Port);
+
+    redis.Connect();
+
+    return redis;
+});
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Portainer : Pcmizdeki imagelarým/containerlarý yönetmemizi saðlayan bir web arayüzü. Bunu da bir container olarak ayaða kaldýrýcaz. Eskiden Docker arayüzü yoktu.
+
+Portainerý containe rolarak ayaða kaldýrmak için -Community Editon:CE- CLI dan > https://docs.portainer.io/start/install-ce/server/docker/linux
+
+
+https://localhost:9443/
+
+þifre : Password123*
+
+portainer açýp, environment portainer týkla, sol menü > App Templates > MongoDb seç
+name : basketDb
+show advanced options : port mapping > host: 6379  container: 6379 öNEMLÝ
+
+Deploy the contaienr.
+
+Sonra > Portainer > Registries kýsmýndan DockerHub kullanýcý adý ve accesstokený ile registry ekledim. Docker hub image alýþveriþi için.
+Redis container ayakta ismi basketDb.

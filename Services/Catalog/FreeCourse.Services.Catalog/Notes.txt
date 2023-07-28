@@ -1,5 +1,5 @@
-  launchSetting.json aþaðýdaki deðiþikliði yaptýk kestrel sunucusunda çnk her 7 microservis için de 7 tarayýcý açmasýn çalýþtýrýnca.
-	"launchBrowser": true, 
+launchSetting.json aþaðýdaki deðiþikliði yaptýk kestrel sunucusunda çnk her 7 microservis için de 7 tarayýcý açmasýn çalýþtýrýnca.
+	"launchBrowser": true, -> false
 
 	Category > Course > Feature
 
@@ -50,11 +50,11 @@ https://localhost:9443/
 þifre : Password123*
 
 portainer açýp, environment portainer týkla, sol menü > App Templates > MongoDb seç
-name : mongodb
+name : catalogDb
 show advanced options : port mapping > host: 27017  container: 27017 öNEMLÝ
 
 Deploy the contaienr.
 
 Sonra > Portainer > Registries kýsmýndan DockerHub kullanýcý adý ve accesstokený ile registry ekledim. Docker hub image alýþveriþi için.
-MongoDb container ayakta.
+catalogDb isimli MongoDb container ayakta.
 MongoDb Compass ile ayar :  mongodb://localhost:27017 ile direk baðlantý.
