@@ -7,7 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Client Credentials - Token using APIs.png = Client Credentials - Token using APIs.png
 		FreeCourse.IdentityServer.MicroServiceProject.postman_collection.json = FreeCourse.IdentityServer.MicroServiceProject.postman_collection.json
-		FreeCouse.IdentityServer.MicroServiceProject.postman_collection.json = FreeCouse.IdentityServer.MicroServiceProject.postman_collection.json
 		Microservice Project Overview.png = Microservice Project Overview.png
 		Notes.txt = Notes.txt
 		OAuth2.0.png = OAuth2.0.png

@@ -40,9 +40,9 @@ namespace FreeCourse.Services.PhotoStock.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(string photoUrl)
+        public IActionResult Delete(string photoName)
         {
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwwroot/photos", photoUrl);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photoName);
 
             if (!System.IO.File.Exists(path))
             {

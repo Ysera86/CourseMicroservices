@@ -80,6 +80,58 @@
 					"response": []
 				},
 				{
+					"name": "IdentityServer.Token endpoint - ClientCredentials",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "WebMvcClient",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "secret",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "email2@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Password12*",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5001/connect/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "IdentityServer.User.Signup",
 					"request": {
 						"auth": {
@@ -168,6 +220,37 @@
 			"name": "Catalog.API",
 			"item": [
 				{
+					"name": "Courses GET",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4OTNDQTY1OEEwQzA0MDY0QTUzNzdFMzZCRkQyRDFDIiwidHlwIjoiYXQrand0In0.eyJuYmYiOjE2OTA0MzkyOTMsImV4cCI6MTY5MDQ0Mjg5MywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAxIiwiYXVkIjpbInJlc291cmNlX2NhdGFsb2ciLCJyZXNvdXJjZV9waG90b19zdG9jayIsImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMS9yZXNvdXJjZXMiXSwiY2xpZW50X2lkIjoiV2ViTXZjQ2xpZW50IiwianRpIjoiM0MwMDhENjAxODhDQkI3RDUxREZCNTQzRTgzNDFBRTgiLCJpYXQiOjE2OTA0MzkyOTMsInNjb3BlIjpbImNhdGFsb2dfZnVsbHBlcm1pc3Npb24iLCJJZGVudGl0eVNlcnZlckFwaSIsInBob3RvX3N0b2NrX2Z1bGxwZXJtaXNzaW9uIl19.K4YYVh7HBTLm4pv8aIYm2LzhTOVYr1qfChPT2wyQe_onAo8F7WnEMY9EtYMG6FXpC76JpPEusvcni0oKpEN4mpC3L8_tRZhFNIc-1QyyGAgoDQzaGHI_awFFIHR22MK0OoGsD-mLyGHC67WnRkIONfi5_gxEqh698Y5Vr8TdrOQSlB2XtUXnx2zkcnPx2nJxiYlNDRGnejwEtA79ngGW0PU6XBdG3rG6u7HvRYMvWVNqsTbh3rDI4OgKFYgH5hrVvmmkegjsHPnDh3ssEi8_HiTpahX1m8ZR5MLWDn6TxEVaqdywORcgU9ZtRj2rJa1ZXylzS_j4mCJYw7OoIkVlIA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5011/api/Courses/GetAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5011",
+							"path": [
+								"api",
+								"Courses",
+								"GetAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Categories GET",
 					"request": {
 						"auth": {
@@ -197,9 +280,87 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "PhotoStock",
+			"item": [
+				{
+					"name": "Photos Save - 401",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/merve/OneDrive/Resimler/Ekran Görüntüleri/Ekran görüntüsü 2023-07-08 201310.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5012/api/Photos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5012",
+							"path": [
+								"api",
+								"Photos"
+							]
+						}
+					},
+					"response": []
 				},
 				{
-					"name": "Courses GET",
+					"name": "Photos Save",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/merve/OneDrive/Resimler/Ekran Görüntüleri/Ekran görüntüsü 2023-03-30 151706.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5012/api/Photos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5012",
+							"path": [
+								"api",
+								"Photos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Photos Delete",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -211,19 +372,24 @@
 								}
 							]
 						},
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5011/api/Courses/GetAll",
+							"raw": "http://localhost:5012/api/Photos?photoName=Ekran görüntüsü 2023-03-30 151706.png",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "5011",
+							"port": "5012",
 							"path": [
 								"api",
-								"Courses",
-								"GetAll"
+								"Photos"
+							],
+							"query": [
+								{
+									"key": "photoName",
+									"value": "Ekran görüntüsü 2023-03-30 151706.png"
+								}
 							]
 						}
 					},
