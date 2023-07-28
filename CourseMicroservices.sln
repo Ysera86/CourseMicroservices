@@ -4,15 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E417A5F-D272-4A2D-8380-BDBA198789EC}"
-	ProjectSection(SolutionItems) = preProject
-		Client Credentials - Token using APIs.png = Client Credentials - Token using APIs.png
-		FreeCourse.IdentityServer.MicroServiceProject.postman_collection.json = FreeCourse.IdentityServer.MicroServiceProject.postman_collection.json
-		Microservice Project Overview.png = Microservice Project Overview.png
-		Notes.txt = Notes.txt
-		OAuth2.0.png = OAuth2.0.png
-		Our grant types.png = Our grant types.png
-		Ports.txt = Ports.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D1638889-086E-467F-A397-1912A5B12B0B}"
 EndProject
@@ -31,6 +22,17 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PhotoStock", "PhotoStock", "{69DF3354-82E2-4F08-9F11-68F1AE0D0334}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCourse.Services.PhotoStock", "Services\PhotoStock\FreeCourse.Services.PhotoStock\FreeCourse.Services.PhotoStock.csproj", "{4091D694-70F1-4BE0-86B1-D44ABD5FC774}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{CC7165D0-5B82-4A24-8095-28F38F05B4F5}"
+	ProjectSection(SolutionItems) = preProject
+		Notes\Client Credentials - Token using APIs.png = Notes\Client Credentials - Token using APIs.png
+		Notes\FreeCourse.IdentityServer.MicroServiceProject.postman_collection.json = Notes\FreeCourse.IdentityServer.MicroServiceProject.postman_collection.json
+		Notes\Microservice Project Overview.png = Notes\Microservice Project Overview.png
+		Notes\Notes.txt = Notes\Notes.txt
+		Notes\OAuth2.0.png = Notes\OAuth2.0.png
+		Notes\Our grant types.png = Notes\Our grant types.png
+		Notes\Ports.txt = Notes\Ports.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
