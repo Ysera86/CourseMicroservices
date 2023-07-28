@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 //.
 
+builder.Services.AddScoped<IBasketService, BasketService>();    
+
 #region HttpContextAccessor : user Id eriþimi için : Context.User.Claims içinden UserId alýcam. Contexte mvc edpointlerde eriþim ama servis düzeyinde eriþmek için HttpContextAccessor  gerekli, onu da Shared içinde DI ile ctordan aabilmek için, bunu kullanan APIlerin servislerine DI geçmeliyim : BURADAKÝ GÝBÝ
 
 builder.Services.AddHttpContextAccessor();
