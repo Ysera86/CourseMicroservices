@@ -1,0 +1,4 @@
+NoSQL olarak redis kullanýcaz, redis için de nuget paketi StackExchange.Redis kullanýyoruz.
+
+Host : localhost
+Redis defualt port : 6379
