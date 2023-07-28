@@ -1,5 +1,6 @@
 using FreeCourse.Services.Basket.Services;
 using FreeCourse.Services.Basket.Settings;
+using FreeCourse.Shared.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
@@ -8,6 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 //.
+
+#region HttpContextAccessor : user Id eriþimi için : Context.User.Claims içinden UserId alýcam. Contexte mvc edpointlerde eriþim ama servis düzeyinde eriþmek için HttpContextAccessor  gerekli, onu da Shared içinde DI ile ctordan aabilmek için, bunu kullanan APIlerin servislerine DI geçmeliyim : BURADAKÝ GÝBÝ
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
+
+#endregion
 
 #region OptionsPattern ile RedisSettings okuma
 
