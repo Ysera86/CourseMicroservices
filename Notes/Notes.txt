@@ -4,7 +4,7 @@ CQRS Pattern
 API Gateway : Ocelot
 Identity Server  :SqlExpress EfCore
 Catalog API: MongoDB
-Basket API : Redis , StockExchange Redis
+Basket API : Redis , StockExchange Redis (pckg)
 Discount API : PostgreSQL, Dapper
 Message Broker : RabbitMQ
 
